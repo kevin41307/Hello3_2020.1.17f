@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Footprint : MonoBehaviour
 {
-    bool footUp = false;
-    bool footDown = false;
-    Animator animator;
-    BoxCollider boxCollider;
-    AnimatorStateInfo stateInfo;
+    private bool footUp = false;
+    private bool footDown = false;
+    private Animator animator;
+    private BoxCollider boxCollider;
+    private AnimatorStateInfo stateInfo;
+    private float cdTimer = cdTime;
+    private const float cdTime = 0.15f;
     private void Awake()
     {
         boxCollider = this.gameObject.AddComponent<BoxCollider>();
@@ -20,6 +22,12 @@ public class Footprint : MonoBehaviour
         animator = Game.playerAttrSingle.animator;
     }
 
+    private void Update()
+    {
+        if(cdTimer > 0f)
+            cdTimer -= Time.deltaTime;     
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,10 +36,12 @@ public class Footprint : MonoBehaviour
         if (footUp && other.gameObject.layer ==LayerMask.NameToLayer("Player"))
         {
             footUp = false;
-            //stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if(true)
+            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+            if(animator.GetBool("isGrounded") && cdTimer <= 0)
             {
                 Game.playerAttrSingle.transform.SendMessage("PlayFootsteps", SendMessageOptions.DontRequireReceiver);
+                cdTimer = cdTime;
             }
 
         }
