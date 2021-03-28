@@ -113,6 +113,7 @@ public class PaladinBattle : MonoBehaviour
         {
             //Game.bossAttribute = bossAttribute;
             bossAttribute.Reset();
+            bossHpBar.gameObject.SetActive(true);
         }
         else
         {

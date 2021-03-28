@@ -61,6 +61,9 @@ public class AIController_Skeleton : AIController_Base
     public GameObject colliderGo;
     CapsuleCollider enemyCollider;
     EnemyHpBar enemyHpBar;
+
+    public delegate void DeadEvent();
+    public static event DeadEvent OnDeaded;
     private void Awake()
     {
         enemyBattle = GetComponent<EnemyBattle>();
@@ -75,12 +78,14 @@ public class AIController_Skeleton : AIController_Base
         ragdoll = GetComponent<RagDoll>();
 
         agent.baseOffset = -0.06666655f;
+
     }
 
     private void Start()
     {
-        
     }
+
+
     public void Reset()
     {
         targetPlayer = null;
@@ -516,6 +521,11 @@ public class AIController_Skeleton : AIController_Base
             agent.isStopped = true;
             agent.enabled = false;
             ragdoll.DoRagdoll(true);
+            if(OnDeaded != null)
+            {
+                OnDeaded.Invoke();
+
+            }
 
             QuestManager.UpdateEliminateQuest(new QuestEventArgs(enemyAttribute.enemyName));
             this.SendMessage("BurstVFX_Off", SendMessageOptions.DontRequireReceiver);

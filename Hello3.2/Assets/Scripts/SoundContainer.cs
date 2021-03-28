@@ -53,6 +53,7 @@ public class SoundContainer : MonoBehaviour
     public void PlayFootsteps()
     {
         //playerAudioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Count - 1)], 0.6f);
+        //print(Random.Range(0, playerAudioCollection.footsteps.Count - 1));
         audioSourcePool.Play(playerAudioCollection.footsteps[Random.Range(0, playerAudioCollection.footsteps.Count - 1)], 0.6f);
 
     }

@@ -19,14 +19,13 @@ public class TipsOnWorld : MonoBehaviour
 
     private void LateUpdate()
     {
+        //&& Vector3.Distance(transform.position, Game.plastererSingle.transform.position) < 3f
         if (!isClose)
         {
-            if (Game.IsInFrontOfCamera(transform.position))
+            if (Game.IsInFrontOfCamera(transform.position) && Vector3.Distance(transform.position, Game.playerAttrSingle.transform.position) < 6f)
             {
                 tips.SetActive(true);
-
                 rect.anchoredPosition = UIPosition.WorldToUI(transform.position, rootCanvas);
-
             }
             else
             {

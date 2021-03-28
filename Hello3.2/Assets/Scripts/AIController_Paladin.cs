@@ -24,7 +24,7 @@ public class AIController_Paladin : MonoBehaviour
     float runSpeed = 10f; //angry = 16f
 
     int attackCount = 0;
-    int attackCountMax = 3;
+    int attackCountMax = 10;
     bool attackMode = false;
     float attackRange = 1.65f;
     float longAttackRange = 5f;
@@ -105,11 +105,16 @@ public class AIController_Paladin : MonoBehaviour
 
     private void Start()
     {
-        currentState = FSMState.Attack;
-        paladinBattle.BattleStart();
+        currentState = FSMState.Observe;
+        //paladinBattle.BattleStart();
         targetPlayer = player;
-        animator.SetFloat("lockOn", 1f);
+        //animator.SetFloat("lockOn", 1f);
         StopAllCoroutines();
+    }
+
+    private void OnEnable()
+    {
+        paladinBattle.BattleStart();
     }
     // Update is called once per frame
 
@@ -398,14 +403,16 @@ public class AIController_Paladin : MonoBehaviour
         soundRange = 100f;
         Debug.Log("Start_AttackMode");
         paladinAnimation.ChangeAnimation(PaladinAnimation.State.Attack);
+        yield return new WaitForSeconds(1f);
         attackCount = Random.Range(1, attackCountMax);
         attacked = false;
         //Debug.Log("attackCount" + attackCount);
-
+        /*
         while (animator.GetBool("isInteracting"))
         {
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(1f);
         }
+        */
 
         if ( !interactiveWithPlayer.PlayerInDistance() ) //遠距離攻擊
         {

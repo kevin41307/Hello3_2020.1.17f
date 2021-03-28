@@ -281,10 +281,12 @@ public class PlayerBattle : MonoBehaviour
         }
         else
         {
-            direction = Game.Singleton.nearbyEnemy.position - this.transform.position;
-        }
+            Vector3 target = new Vector3(Game.Singleton.nearbyEnemy.position.x, 1.5f, Game.Singleton.nearbyEnemy.position.z);
+            direction = target - this.transform.position;
 
-        if(Physics.Raycast(this.transform.position, direction, out hitInfo, 15f, Game.Singleton.enemyLayer ))
+        }
+        Debug.Log("Shoot!");
+        if (Physics.Raycast(this.transform.position, direction, out hitInfo, 15f, Game.Singleton.enemyLayer ))
         {
             Debug.Log("Shoot " + hitInfo.transform.name);
             ChangeInfo info = new ChangeInfo(-Random.Range(8, 15));

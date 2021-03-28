@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: HealPotion
   itemImage: {fileID: 8943728508470143933, guid: 4e9ff197cc7e40849949a2332b67156e,
     type: 3}
-  itemHeld: 1
+  itemHeld: 10
   itemInfo: Heal Hp.
   equipable: 0
   addInQuickItemList: 0

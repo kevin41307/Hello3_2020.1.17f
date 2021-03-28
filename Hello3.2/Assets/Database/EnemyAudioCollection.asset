@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa125a307a3d384aac85a123b242edd, type: 3}
   m_Name: EnemyAudioCollection
   m_EditorClassIdentifier: 
-  footsteps: []
+  footsteps:
+  - {fileID: 8300000, guid: de1ac36e34ae6a046ac4f255351aac2b, type: 3}
+  - {fileID: 8300000, guid: 5bd77e48d026a9c49a14ac1dbc9b6a9c, type: 3}
+  - {fileID: 8300000, guid: da67cb5a7748e6a4fbbfe111cef64282, type: 3}
+  - {fileID: 8300000, guid: c5db837a684ca084f8fe7935a1fe2672, type: 3}
   swordSwing:
   - {fileID: 8300000, guid: 6658fe4e281aae345b412a549a91479a, type: 3}
   - {fileID: 8300000, guid: ccbaea722c9a3c544a476409dc067940, type: 3}
   - {fileID: 8300000, guid: b80a31bf9e40af645aff64499e365b15, type: 3}
   - {fileID: 8300000, guid: 466723081d77d424ea5cefaf98cb11c1, type: 3}
-  swordHit: []
+  swordHit:
+  - {fileID: 8300000, guid: e322282eff9ed7e4da6327d6e31eb0d2, type: 3}
+  - {fileID: 8300000, guid: 426535022aff99348912536924cd63af, type: 3}
+  - {fileID: 8300000, guid: 2891279cef8760844b037ea3e40aa75d, type: 3}
+  - {fileID: 8300000, guid: 120bb29e04017fe459f21a64c38b8c04, type: 3}
+  - {fileID: 8300000, guid: 86515ee05412ba94bafeabf55b0c2a23, type: 3}
   rolling: []
   gunShoot: []
   bloodExplosion_More: []

@@ -5,7 +5,7 @@ public class AI_AttackUniversal : MonoBehaviour
     Animator animator;
     Vector3 swordPoint;
     float radius = 0.14f;
-    float length = 1.95f;
+    float length = 2.1f;
     CacheObjectController CoController;
     private void Awake()
     {
@@ -14,13 +14,13 @@ public class AI_AttackUniversal : MonoBehaviour
 
     private void Start()
     {
-        swordPoint = this.transform.position - this.transform.up * 1f;
+        swordPoint = this.transform.position - this.transform.up * 1.1f;
         animator = Game.bossAttribute.animator;
     }
 
     private void LateUpdate()
     {
-        swordPoint = this.transform.position - this.transform.up * 1f;
+        swordPoint = this.transform.position - this.transform.up * 1.1f;
     }
 
     void FixedUpdate()

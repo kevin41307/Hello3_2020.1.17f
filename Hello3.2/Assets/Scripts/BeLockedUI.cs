@@ -17,7 +17,7 @@ public class BeLockedUI : MonoBehaviour
         if( Game.Singleton.isLockOn && Game.Singleton.nearbyEnemy != null)
         {
             Vector3 enemyPos = Game.Singleton.nearbyEnemy.transform.position;
-            enemyPos.y -= 0.5f;
+            enemyPos.y += 0.5f;
             Vector3 point = Camera.main.WorldToScreenPoint(enemyPos);
             this.transform.position = point;
 

@@ -11,6 +11,7 @@ public class MoveBehavior : StateMachineBehaviour
         animator.SetInteger("LightAttack", 0);
         animator.SetInteger("strongAttack", 0);
         animator.SetBool("chargeFull", false);
+        animator.SendMessage("Attack_Off", SendMessageOptions.DontRequireReceiver);
         animator.speed = 1f;
     }
 

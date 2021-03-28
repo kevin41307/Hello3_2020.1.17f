@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: SilverBullet
   itemImage: {fileID: 6334439168542168994, guid: 4e9ff197cc7e40849949a2332b67156e,
     type: 3}
-  itemHeld: 13
+  itemHeld: 99
   itemInfo: gun bullet
   equipable: 1
   addInQuickItemList: 0

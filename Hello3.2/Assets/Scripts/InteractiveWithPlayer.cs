@@ -76,6 +76,8 @@ public class InteractiveWithPlayer
     {
         Vector3 direction = PlayerDirectionNormailized();
         float rs = _rotateSpeed;
+        if (direction == Vector3.zero)
+            return;
         Quaternion tr = Quaternion.LookRotation(direction);
         Quaternion targetRotation = Quaternion.Slerp(other.rotation, tr, rs * Time.deltaTime);
         other.rotation = targetRotation;

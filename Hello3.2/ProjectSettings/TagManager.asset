@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Boss
   - GlobalVolume
+  - Weapon
+  - GM
+  - ScoreBoard
   layers:
   - Default
   - TransparentFX
@@ -22,9 +25,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Caster
+  - Weapon
+  - Sensor
   - InteractableEnvObj
   - 
   - PostProcessing

@@ -34,18 +34,26 @@ public class CharacterAnimationDelegate : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        rimColor = rimColorMat_Default.GetColor("mColor");
+        if(rimColorMat_Default != null)
+        {
+            rimColor = rimColorMat_Default.GetColor("mColor");
 
-        rimColorMat = playerRenderer1.materials[1];
-        rimColorMat2 = playerRenderer2.materials[1];
+            rimColorMat = playerRenderer1.materials[1];
+            rimColorMat2 = playerRenderer2.materials[1];
+        }
+
 
         Reset();
     }
 
     private void Reset()
     {
-        rimColorMat.SetColor("mColor", Color.black);
-        rimColorMat2.SetColor("mColor", Color.black);
+        if(rimColorMat_Default != null)
+        {
+            rimColorMat.SetColor("mColor", Color.black);
+            rimColorMat2.SetColor("mColor", Color.black);
+        }
+
     }
 
     private void Update()
@@ -84,7 +92,10 @@ public class CharacterAnimationDelegate : MonoBehaviour
     public void Attack_On()
     {
         playerAttackPoint.SetActive(true);
-        playerAttackPointWithEnv.SetActive(true);
+        if (playerAttackPointWithEnv != null)
+        {
+            playerAttackPointWithEnv.SetActive(true);
+        }
         AttackTrail_On();
         CharacterLightOn();
         Game.Singleton.attackedEnemies.Clear();
@@ -94,7 +105,11 @@ public class CharacterAnimationDelegate : MonoBehaviour
     public void Attack_Off()
     {
         playerAttackPoint.SetActive(false);
-        playerAttackPointWithEnv.SetActive(false);
+        if (playerAttackPointWithEnv != null)
+        {
+            playerAttackPointWithEnv.SetActive(false);
+
+        }  
         AttackTrail_Off();
         Game.Singleton.attackedEnemies.Clear();
     }

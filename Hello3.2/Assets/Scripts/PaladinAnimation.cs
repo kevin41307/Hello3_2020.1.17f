@@ -62,10 +62,16 @@ public class PaladinAnimation : MonoBehaviour
     void Play_Attack()
     {
         //Debug.Log("Play_Attack");
-        if (animator.GetFloat("lockOn") == 0f)
-            animator.Play("Equip");
+        if (animator.GetFloat("lockOn") <= 0.1f)
+        {
 
+            animator.Play("Equip");
+            print("1111Play_Attack1111");
+
+        }
         animator.SetFloat("lockOn", 1f);
+
+
         //animator.SetBool("isInteracting", true);
     }
 
@@ -83,7 +89,7 @@ public class PaladinAnimation : MonoBehaviour
     void Play_Observe()
     {
         //Debug.Log("Play_Observe");
-        if (animator.GetFloat("lockOn") == 0f)
+        if (animator.GetFloat("lockOn") <= 0.1f)
             animator.Play("Equip");
         animator.SetFloat("lockOn", 1f);
     }

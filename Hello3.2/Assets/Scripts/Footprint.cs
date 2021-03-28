@@ -10,7 +10,7 @@ public class Footprint : MonoBehaviour
     private BoxCollider boxCollider;
     private AnimatorStateInfo stateInfo;
     private float cdTimer = cdTime;
-    private const float cdTime = 0.15f;
+    private const float cdTime = 0.25f;
     private void Awake()
     {
         boxCollider = this.gameObject.AddComponent<BoxCollider>();
@@ -42,6 +42,7 @@ public class Footprint : MonoBehaviour
             {
                 Game.playerAttrSingle.transform.SendMessage("PlayFootsteps", SendMessageOptions.DontRequireReceiver);
                 cdTimer = cdTime;
+
             }
 
         }

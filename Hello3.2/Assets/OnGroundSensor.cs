@@ -11,11 +11,13 @@ public class OnGroundSensor : MonoBehaviour
     private Vector3 point1;
     private Vector3 point2;
     private Collider[] hits;
-    private float offset = 0.2f;
+    private float offset = 0.05f;
 
     private void Awake()
     {
         //cc = GetComponentInParent<CapsuleCollider>();
+        //print(cc.bounds.extents);
+        //print(cc.height * cc.transform.localScale.y);
 
     }
 
